@@ -42,6 +42,7 @@ public class Game {
         // ask what player wants to do
         // Text parser
         String[] command = TextParser.parser();
+
         // do that thing
         switch (command[0]) {
             case "move" -> {
@@ -86,10 +87,8 @@ public class Game {
                 exit("exit");
             }
         }
-
         // quit message
         System.out.println("Thanks for playing! Come play again");
-
     }
 
     /*

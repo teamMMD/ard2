@@ -22,6 +22,12 @@ public class PlayScreen implements Screen {
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {
-        return null;
+        switch (key.getKeyCode()) {
+            case KeyEvent.VK_ESCAPE:
+                System.exit(1);
+            case KeyEvent.VK_LEFT:
+                return new TempScreen();
+        }
+        return this;
     }
 }

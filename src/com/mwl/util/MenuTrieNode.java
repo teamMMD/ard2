@@ -10,7 +10,7 @@ public class MenuTrieNode {
     List<MenuTrieNode> children;
     MenuTrieNode parent;
 
-    // constructor
+    //* CONSTRUCTORS */
     public MenuTrieNode(String title, String description) {
         this.title = title;
         this.description = description;
@@ -22,6 +22,7 @@ public class MenuTrieNode {
         this.parent = parent;
     }
 
+    //* BUSINESS METHODS */
     /**
      * Add a MenuTrieNode to children list
      *
@@ -33,6 +34,7 @@ public class MenuTrieNode {
         }
     }
 
+    //* GETTERS AND SETTERS */
     public List<MenuTrieNode> getChildren() {
         return children;
     }

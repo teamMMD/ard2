@@ -31,6 +31,7 @@ public class ConsoleManager {
     public ConsoleManager() {
     }
 
+    //* BUSINESS METHODS */
     /**
      * Method to read a random ASCII art game banner, and return it as a string. If error out reading file, returns
      * "A. R. D." as the banner.

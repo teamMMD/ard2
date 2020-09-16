@@ -16,20 +16,13 @@ public enum Codes {
     String code;
     Colors color;
 
+    //* CONSTRUCTORS */
     Codes(String unicode, Colors color) {
         this.code = unicode;
         this.color = color;
     }
 
-    /**
-     * Get the unicode associated with this enum
-     *
-     * @return
-     */
-    public String getCode() {
-        return withColor(code);
-    }
-
+    //* BUSINESS METHODS */
     /**
      * Method to change a string to be printable in color according to it's Colors enum.
      *
@@ -44,6 +37,16 @@ public enum Codes {
         return withColor("" + output);
     }
 
+
+    //* GETTERS AND SETTERS */
+    /**
+     * Get the unicode associated with this enum
+     *
+     * @return
+     */
+    public String getCode() {
+        return withColor(code);
+    }
     /**
      * Get the color associated with this enum
      *

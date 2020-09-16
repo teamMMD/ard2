@@ -3,7 +3,7 @@ package com.mwl.characters;
 public class Normal extends Monster {
     Player player;
 
-    // Constructor
+    //* CONSTRUCTORS */
     public Normal(String name, int life, String description) {
         setName(name);
         setDescription(description);
@@ -11,6 +11,7 @@ public class Normal extends Monster {
         //   setCurrentRoom(currentRoom);
     }
 
+    //* BUSINESS METHODS */
     // Abstract methods with local logic
     @Override
     public void attack() {

@@ -20,10 +20,10 @@ import java.util.Random;
 import static com.mwl.util.ExitGame.exit;
 
 public class Game {
-    private Player player;              // player reference
-    private RoomMap gameMap;            // map of the rooms
-    private Random random = new Random();
-    private Monster boss;               // boss monster reference
+    private Player player;                // player reference
+    private RoomMap gameMap;              // map of the rooms
+    private Random random = new Random(); // generate new room
+    private Monster boss;                 // boss monster reference
 
     // default constructor
     public Game() {
@@ -31,18 +31,19 @@ public class Game {
     }
 
     /**
-     * Method to run the basic logic behind the game. Parse text, do command, return boolean if game is still going.
+     * Method to run the basic logic behind the game. Parse player's input, execute command,
+     * return boolean if game is still going.
      *
      * @return
      */
     private boolean play() {
-        // let player know we expect something
+        // let player know we expect an input
         System.out.print("> ");
 
         // ask what player wants to do
         // Text parser
         String[] command = TextParser.parser();
-        // do that thing
+        // do execute two word command
         switch (command[0]) {
             case "move" -> {
                 int size = gameMap.size();
@@ -57,6 +58,7 @@ public class Game {
             case "help" -> ConsoleManager.gameExplanation();
             case "unlock" -> unlockChest(player);
             case "use" -> UsePower(player, command[1]);
+            case "show" -> Show(player, command[1]);
         }
 
         return true;
@@ -66,7 +68,7 @@ public class Game {
      * Method to start a new game. Prints out a welcome message and game banner.
      */
     public void newGame() {
-        // new game logic
+        // print game intro and let the player pick a character Iron Man or Wolverine
         ConsoleManager.gameIntro();
         player = ConsoleManager.choosePlayer(gameMap);
 
@@ -117,13 +119,21 @@ public class Game {
     }
 
     /**
-     * Method to look at different objects. Either "Around" to give details about the room. "Me" to give details about the
-     * player.
+     * Method to look at different objects. "Around" to give details about the room.
      */
     private void Look(Player player, String option) {
         switch (option) {
             case "Around" -> player.getCurrentRoom().overview();
-            case "Me" -> player.printStats();
+            default -> itemRequestDesc(option);
+        }
+    }
+
+    /**
+     * Method to show player's status.
+     */
+    private void Show(Player player, String option) {
+        switch (option) {
+            case "Status" -> player.printStats();
             default -> itemRequestDesc(option);
         }
     }
@@ -145,6 +155,9 @@ public class Game {
         }
     }
 
+    /**
+     * Method to print an item description.
+     */
     public void itemRequestDesc(String item){
         if(player.playerAndRoomItems().contains(Item.valueOf(item))){
             for (Item itemx : player.playerAndRoomItems()) {
@@ -158,7 +171,9 @@ public class Game {
         }
     }
 
-
+    /**
+     * Method to keep Player's score, name and a time stamp in resources/scores/final_scores.txt.
+     */
     public static void keepScores(Player player) {
         PrintWriter writer = null;
         try {

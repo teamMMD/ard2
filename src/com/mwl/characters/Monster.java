@@ -8,15 +8,18 @@ public abstract class Monster {
     private int life;
     //  private Room currentRoom;
 
-    public Monster() {
-        // default constructor
-    }
+    //* CONSTRUCTORS */
+    /**
+     * Default constructor
+     */
+     public Monster() {}
 
+    //* BUSINESS METHODS */
     public abstract void attack();
 
     public abstract void move();
 
-    // Getters and Setters
+    //* GETTERS AND SETTERS */
     public String getName() {
         return name;
     }

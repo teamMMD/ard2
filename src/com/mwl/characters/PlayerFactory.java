@@ -7,10 +7,16 @@ import java.util.List;
 
 public class PlayerFactory {
 
+    //* CONSTRUCTORS */
     private PlayerFactory() {
-
     }
 
+    //* BUSINESS METHOD */
+
+    /**
+     * Method let player pick to play as A: Wolverine or B: Iron Man to start the game
+     * @return Player
+     */
     public static Player createPlayer(Room currentRoom, List<Item> itemInventory, String playerOption) {
         Player player = null;
         switch (playerOption.toUpperCase().strip()) {

@@ -14,11 +14,13 @@ public class Chest {
     private Puzzle puzzle;
     private boolean broken;
 
+    //* CONSTRUCTORS */
     public Chest(Puzzle puzzle) {
         this.puzzle = puzzle;
         reward = makeAward();
     }
 
+    //* BUSINESS METHODS */
     /**
      * Helper method to get a bunch of random items (not power stones) and put it into reward list.
      */

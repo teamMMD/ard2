@@ -28,6 +28,12 @@ import static com.mwl.util.ExitGame.exit;
 public class ConsoleManager {
     private static final Scanner scanner = new Scanner(System.in);
     private static MenuTrieNode menu = read_xml();
+//    public String l1 ="Welcome to " + Colors.CYAN.negative("ARD") + ", the game where you get ";
+//    public String l2 = Colors.CYAN.toColor("Another Random Destiny") + " every time you play!\n";
+//    public String l3 = "To learn about the game, type \"help me\".";
+    public String l1 ="Welcome to 'ARD' the game where you get ";
+    public String l2 = "Another Random Destiny every time you play!";
+    public String l3 = "To learn about the game, type \"h\".";
 
     public ConsoleManager() {
     }
@@ -38,7 +44,7 @@ public class ConsoleManager {
      *
      * @return a ASCII art banner as a single string
      */
-    private static String gameTitle() {
+    public static String gameTitle() {
         String result;
         try {
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("resources/title_art/banners.xml");
@@ -56,14 +62,13 @@ public class ConsoleManager {
      * Game title (banner)
      * Game description
      */
-    public static String gameIntro() {
+    public static void gameIntro() {
         System.out.println(getRandomColor().toColor(gameTitle()));
-//        System.out.println("Welcome to " + Colors.CYAN.negative("ARD") + ", the game where you get "
-//                + Colors.CYAN.toColor("Another Random Destiny") + " every time you play!");
-//        System.out.println("To learn about the game, type \"help me\".");
-//        System.out.println();
-        return getRandomColor().toColor(gameTitle());
-//        return "good point Maya";
+        System.out.println("Welcome to " + Colors.CYAN.negative("ARD") + ", the game where you get "
+                + Colors.CYAN.toColor("Another Random Destiny") + " every time you play!");
+        System.out.println("To learn about the game, type \"help me\".");
+        System.out.println();
+//        return getRandomColor().toColor(gameTitle());
     }
 
     /**

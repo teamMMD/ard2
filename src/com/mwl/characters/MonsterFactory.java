@@ -13,13 +13,17 @@ import java.util.stream.Stream;
 public class MonsterFactory {
     private static int startingLife = 50;
 
-    private MonsterFactory() {
-
-    }
+    //* CONSTRUCTORS */
 
     /**
+     * Default constructor
+     */
+    private MonsterFactory() {
+    }
+
+    //* BUSINESS METHODS */
+    /**
      * Creates a normal monster, pulling name and description from a file.
-     *
      * @return newly created normal monster
      */
     public static Monster createMonster() {
@@ -59,6 +63,7 @@ public class MonsterFactory {
         return boss;
     }
 
+    //* GETTERS AND SETTERS */
     /**
      * Method to get the normal monsters typical starting life.
      *

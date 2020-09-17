@@ -11,21 +11,14 @@ public class Puzzle {
     private Set<String> wrong_answers;
     private String difficulty;
 
-    /**
-     * Constructor
-     *
-     * @param question
-     * @param difficulty
-     * @param answer
-     * @param wrong_answers
-     */
+    //* CONSTRUCTORS */
     public Puzzle(String question, String difficulty, String answer, Set<String> wrong_answers) {
         this.question = question;
         this.answer = answer;
         this.wrong_answers = wrong_answers;
         this.difficulty = difficulty.toLowerCase();
     }
-
+    //* GETTERS AND SETTERS */
     public String getQuestion() {
         return question;
     }
@@ -40,7 +33,6 @@ public class Puzzle {
 
     /**
      * Returns all the answers to the question. The correct answer is somewhere randomly in the mixture.
-     *
      * @return
      */
     public List<String> getAllAnswers() {
@@ -54,7 +46,6 @@ public class Puzzle {
      * Easy -> 1
      * Medium -> 2
      * Hard -> 3
-     *
      * @return
      */
     public int getDifficultyInt() {

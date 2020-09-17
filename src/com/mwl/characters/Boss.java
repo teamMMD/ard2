@@ -2,6 +2,7 @@ package com.mwl.characters;
 
 public class Boss extends Monster {
 
+    //* CONSTRUCTORS */
     public Boss(String name, int life, String description) {
         setName(name);
         setDescription(description);

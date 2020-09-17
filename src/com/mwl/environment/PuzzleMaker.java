@@ -15,8 +15,9 @@ public class PuzzleMaker {
 
     private NodeList puzzles;
 
+    //* CONSTRUCTOR */
     /**
-     * Constructor. Reads in a xml file from a specific source. Ready to be used to construct puzzles
+     * Reads in a xml file from a specific source. Ready to be used to construct puzzles
      */
     public PuzzleMaker() {
         try {
@@ -27,6 +28,7 @@ public class PuzzleMaker {
         }
     }
 
+    //* BUSINESS METHODS */
     /**
      * Picks a random puzzle element and pulls its child tags. Returns a new Puzzle object using those tags
      *

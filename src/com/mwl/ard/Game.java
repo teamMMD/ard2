@@ -25,6 +25,8 @@ public class Game {
     private Random random = new Random(); // generate new room
     private Monster boss;                 // boss monster reference
 
+    String winMessage;
+
     // default constructor
     public Game() {
         gameMap = new RoomMap();
@@ -87,8 +89,12 @@ public class Game {
                 player.getCurrentRoom().addMonster(boss);
             }
             if (boss != null && boss.getLife() <= 0) {
-                System.out.println(Codes.Player.withColor(player.getName()) + " killed "
+//                System.out.println(Codes.Player.withColor(player.getName()) + " killed "
+//                        + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+
+                winMessage = (Codes.Player.withColor(player.getName()) + " killed "
                         + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+
                 keepScores(player);
                 exit("exit");
             }

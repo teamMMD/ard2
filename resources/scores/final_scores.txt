@@ -10,3 +10,12 @@
 <Final score for this game @2020-09-14T08:21:25.943168>
 [DANNY] (Wolverine): 90 points 
 
+<Final score for this game @2020-09-17T12:55:54.752565>
+[wolverine] (Wolverine): 80 points 
+
+<Final score for this game @2020-09-17T12:57:34.106088>
+[ironman] (Iron Man): 60 points 
+
+<Final score for this game @2020-09-17T13:40:22.372353>
+[ilostthisgame] (Wolverine): 40 points 
+

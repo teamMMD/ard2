@@ -31,6 +31,8 @@ public class PlayScreen implements Screen {
                 System.exit(1);
             case KeyEvent.VK_LEFT:
                 return new TempScreen();
+            case KeyEvent.VK_ENTER:
+                return new PlayScreen();
         }
         return this;
     }

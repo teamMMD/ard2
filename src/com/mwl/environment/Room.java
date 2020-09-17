@@ -230,8 +230,8 @@ public class Room {
     }
     public void setWidth() {
         width = (int) new Random().nextInt(76) - 2;
+        if (width < 8) width = 8;
         System.out.println("width... " + width);
-        if (width < 7) width = 7;
     }
 
     public int getHeight() {
@@ -239,8 +239,8 @@ public class Room {
     }
     public void setHeight() {
         height = (int) new Random().nextInt(18) - 4;
+        if (height < 4) height = 4;
         System.out.println("height... " + height);
-        if (height < 7) height = 7;
     }
 
     @Override

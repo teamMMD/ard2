@@ -21,14 +21,16 @@ public class FloorPlan {
     public String[][] makeFloorPlan(Room room) {
         System.out.println("\n  randRoom: " + randRoom.toString());
 
-        int roomStartX = (int) Math.floor((xBound - randRoom.getWidth()) / 2);
+        int roomStartX = (int) Math.floor((xBound - randRoom.getWidth()) / 2) - 1;
         int roomStopX = roomStartX + randRoom.getWidth();
 
-        int roomStartY = (int) Math.floor((yBound - randRoom.getHeight()) / 2);
+        int roomStartY = (int) Math.floor((yBound - randRoom.getHeight()) / 2) - 2;
         int roomStopY = roomStartY + randRoom.getHeight();
 
         System.out.println("Y => " + roomStartY + "-" + roomStopY);
         System.out.println("X => " + roomStartX + "-" + roomStopX);
+
+        int topDoorX = randomInRange(roomStartX, roomStopX);
 
         for (int x = 0; x < 80; x++) {
             for (int y = 0; y < 22; y++) {
@@ -42,6 +44,8 @@ public class FloorPlan {
 //                } else
                 if (x == 39 && y == 11) {
                     floorPlan[x][y] = "@";
+                } else if (y == roomStartY && x == topDoorX) {
+                    floorPlan[x][y] = "+";
                 } else if (x > roomStartX && x < roomStopX && y > roomStartY && y < roomStopY) {
                     floorPlan[x][y] = " ";
                 } else {
@@ -54,6 +58,13 @@ public class FloorPlan {
 
     public int randomUpTo(int num) {
         return (int) new Random().nextInt(num);
+    }
+    public int randomInRange(int min, int max) {
+//        max += 1;
+        int result = (int) (Math.random() * (max - min + 1) + min);
+        if (result == max) result -= 1;
+        System.out.println("randomNumInRange " + min + "-" + max + ": " + result);
+        return result;
     }
 
 }

@@ -33,6 +33,8 @@ public class PlayScreen implements Screen {
                 return new TempScreen();
             case KeyEvent.VK_ENTER:
                 return new PlayScreen();
+//            case KeyEvent.VK_W:
+//                player.move(0, -1);
         }
         return this;
     }

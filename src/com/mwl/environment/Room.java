@@ -19,6 +19,8 @@ public class Room {
     private Chest chest; // a chest of reward items
     private int height;
     private int width;
+    public int monsterX;
+    public int monsterY;
 
 
     //* CONSTRUCTORS */
@@ -72,6 +74,8 @@ public class Room {
         int number = random.nextInt(100);
         if (number < 80) {
             addMonster(MonsterFactory.createMonster());
+            monsterX = random.nextInt(getWidth());
+            monsterY = random.nextInt(getHeight());
         }
     }
 

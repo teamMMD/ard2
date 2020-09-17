@@ -8,10 +8,10 @@ public class FloorPlan {
     public String[][] floorPlan = new String[80][22];
     public Room randRoom;
     int xBound = 80;
-    int yBound = 24;
+    int yBound = 22;
 
-    int randX = randomUpTo(40) + 20;
-    int randY = randomUpTo(10) + 6;
+    int randX = 36;
+    int randY = 9;
 
     public FloorPlan(String roomDescription, int roomID) {
         this.randRoom = new Room(roomDescription, roomID);
@@ -32,17 +32,16 @@ public class FloorPlan {
 
         int topDoorX = randomInRange(roomStartX, roomStopX);
 
-        for (int x = 0; x < 80; x++) {
-            for (int y = 0; y < 22; y++) {
-//                if (x == randX && y == randY) {
-//                    if (randRoom.getMonsters().size() > 0) {
-//                        floorPlan[x][y] = "M";
-//                    } else {
-//                        System.out.println("no monster to render");
-//                        floorPlan[x][y] = " ";
-//                    }
-//                } else
-                if (x == 39 && y == 11) {
+        for (int x = 0; x < xBound; x++) {
+            for (int y = 0; y < yBound; y++) {
+                if (x == randX && y == randY) {
+                    if (randRoom.getMonsters().size() > 0) {
+                        floorPlan[x][y] = "M";
+                    } else {
+                        System.out.println("no monster to render");
+                        floorPlan[x][y] = " ";
+                    }
+                } else if (x == 39 && y == 11) {
                     floorPlan[x][y] = "@";
                 } else if (y == roomStartY && x == topDoorX) {
                     floorPlan[x][y] = "+";

@@ -23,7 +23,14 @@ public class TextParser {
         commands.put("help", new Help());
         commands.put("unlock", new Unlock());
         commands.put("use", new UseSpecialPower());
+
         commands.put("show", new Show());
+
+
+        // TODO: danny to implement score command
+        commands.put("score", new Score());
+
+
         String str = ConsoleManager.scanner().nextLine();
         return ConsoleManager.scanInput(commands, str);
     }

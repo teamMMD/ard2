@@ -43,7 +43,12 @@ public class Game {
         // ask what player wants to do
         // Text parser
         String[] command = TextParser.parser();
+
         // do execute two word command
+
+
+        // do that thing
+
         switch (command[0]) {
             case "move" -> {
                 int size = gameMap.size();
@@ -88,10 +93,8 @@ public class Game {
                 exit("exit");
             }
         }
-
         // quit message
         System.out.println("Thanks for playing! Come play again");
-
     }
 
     /*

@@ -4,6 +4,7 @@ import com.mwl.characters.Player;
 import com.mwl.characters.PlayerFactory;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.commands.Commands;
+import com.mwl.util.commands.Score;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -248,6 +249,13 @@ public class ConsoleManager {
             // check if input text is "exit." We need to do this on every input scanner.
             exit(playerInput);
             words = playerInput.split("\\W+");
+
+            // TODO: danny to implement score command
+            if (words[0].equalsIgnoreCase("score")) {
+                commands.get(words[0]).do_command("");
+                break;
+            }
+
             if (words.length != 2) {
                 System.out.println("Not a valid action. Try again!");
 

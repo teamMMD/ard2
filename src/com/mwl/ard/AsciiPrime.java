@@ -2,6 +2,7 @@ package com.mwl.ard;
 
 import asciiPanel.AsciiPanel;
 import com.mwl.screens.LoadingScreen;
+import com.mwl.screens.PlayScreen;
 import com.mwl.screens.Screen;
 
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class AsciiPrime extends JFrame implements KeyListener {
         add(terminal);
         pack();
         screen = (Screen) new LoadingScreen();
+        // TODO: remove below line and uncomment above when not in testing
+//        screen = (Screen) new PlayScreen();
         addKeyListener(this);
         repaint();
     }

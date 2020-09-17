@@ -1,23 +1,27 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
+import com.mwl.environment.Room;
+import com.mwl.universe.FloorPlan;
 
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class PlayScreen implements Screen {
     private int screenWidth;
     private int screenHeight;
-    private String[][] world = new String[80][22];
+    public FloorPlan thisFloor;
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
-        for (Integer x = 0; x < 79; x++) {
+//        terminal.writeCenter("--- PlayScreen?? --- ", 12);
+        thisFloor = new FloorPlan("test", 1);
+        System.out.println(thisFloor);
+        for (int x = 0; x < 79; x++) {
             for (int y = 0; y < 21; y++) {
-                world[x][y] = ".";
-                terminal.write(".", x, y);
+                terminal.write(thisFloor.floorPlan[x][y], x, y);
             }
         }
-
     }
 
     @Override

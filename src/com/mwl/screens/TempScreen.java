@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 public class TempScreen implements Screen {
     @Override
     public void displayOutput(AsciiPanel terminal) {
-        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 12);
+        terminal.writeCenter("--- TEMPSCREEN --- hit [backspace] to return to the loadingScreen", 12);
     }
 
     @Override

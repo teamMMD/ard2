@@ -115,7 +115,7 @@ public class Room {
      *
      * @return Prints list of monsters or no monsters message
      */
-    private String monstersPresent() {
+    public String monstersPresent() {
         if (getMonsters().size() > 0) {
             return getMonsters().size() + " monster:" + getMonsters().toString();
         } else {
@@ -223,5 +223,17 @@ public class Room {
     @Override
     public int hashCode() {
         return Objects.hash(getDescription(), getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "description='" + description + '\'' +
+                ", items=" + items +
+                ", monsters=" + monsters +
+                ", id=" + id +
+                ", random=" + random +
+                ", chest=" + chest +
+                '}';
     }
 }

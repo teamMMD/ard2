@@ -13,9 +13,9 @@ import static com.mwl.util.ExitGame.exit;
 
 public class combatEngine {
 
+    //* BUSINESS METHODS */
     /**
-     * static method a player can call to attack monsters
-     *
+     * sSatic method a player can call to attack monsters
      * @param player current player
      */
     public static void fightRoomMonster(Player player) {

@@ -14,12 +14,13 @@ public class Grammar {
 
     private Map<String, List<String>> grammar;
 
+    //* CONSTRUCTORS */
     public Grammar() {
-        // default constructor
         grammar = new HashMap<>();
         readRules();
     }
 
+    //* BUSINESS METHODS */
     /**
      * Read in a grammar from a file. All non-terminals (e.g. keys in grammar dictionary) are on the left side of "::=".
      * Every option for each non-terminal is separated by a "|".

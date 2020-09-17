@@ -19,12 +19,7 @@ public class Room {
     private Chest chest; // a chest of reward items
 
 
-    /**
-     * Constructor
-     *
-     * @param description
-     * @param id
-     */
+    //* CONSTRUCTORS */
     public Room(String description, int id) {
         this.description = description;
         this.id = id;
@@ -34,52 +29,7 @@ public class Room {
         generateRandomNormalMonsters();
     }
 
-    /**
-     * Return room description
-     *
-     * @return description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Return all items in room
-     *
-     * @return items
-     */
-    public List<Item> getItems() {
-        return items;
-    }
-
-    /**
-     * Return all monsters in room
-     *
-     * @return
-     */
-    public List<Monster> getMonsters() {
-        return monsters;
-    }
-
-    /**
-     * Returns room id
-     *
-     * @return id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Adds item to room's item list
-     *
-     * @param item
-     */
-    public void addItem(Item item) {
-        if (item != null) {
-            items.add(item);
-        }
-    }
+    //* BUSINESS METHODS */
 
     /**
      * generates between 0 and 3 items in rooms randomly
@@ -101,43 +51,12 @@ public class Room {
     }
 
     /**
-     * Adds monster to room's monster list
-     *
-     * @param monster
+     * Randomly generate normal monsters with a probability of 80%
      */
-    public void addMonster(Monster monster) {
-        if (monster != null) {
-            monsters.add(monster);
-        }
-    }
-
-    //randomly generate normal monsters with a probability of 80%
     public void generateRandomNormalMonsters() {
         int number = random.nextInt(100);
         if (number < 80) {
             addMonster(MonsterFactory.createMonster());
-        }
-    }
-
-    /**
-     * Adds a list of items to room's item list.
-     *
-     * @param items
-     */
-    public void addAllItems(List<Item> items) {
-        if (items != null) {
-            this.items.addAll(items);
-        }
-    }
-
-    /**
-     * Adds a list of monsters to room's monster list
-     *
-     * @param monsters
-     */
-    public void addAllMonsters(List<Monster> monsters) {
-        if (monsters != null) {
-            this.monsters.addAll(monsters);
         }
     }
 
@@ -204,14 +123,6 @@ public class Room {
         }
     }
 
-    /**
-     * Method to set the chest for the given room.
-     *
-     * @param chest
-     */
-    public void setChest(Chest chest) {
-        this.chest = chest;
-    }
 
     /**
      * Runs the chest's question (if available) and get the reward from the chest. Adds rewarded items to the room's
@@ -228,6 +139,77 @@ public class Room {
             System.out.println("No " + Codes.Chest.withColor("chest") + " in this room.");
         }
     }
+
+    //* GETTERS AND SETTERS */
+    public String getDescription() {
+        return description;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public List<Monster> getMonsters() {
+        return monsters;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Adds item to room's item list
+     *
+     * @param item
+     */
+    public void addItem(Item item) {
+        if (item != null) {
+            items.add(item);
+        }
+    }
+
+    /**
+     * Adds a list of items to room's item list.
+     *
+     * @param items
+     */
+    public void addAllItems(List<Item> items) {
+        if (items != null) {
+            this.items.addAll(items);
+        }
+    }
+
+    /**
+     * Adds monster to room's monster list
+     *
+     * @param monster
+     */
+    public void addMonster(Monster monster) {
+        if (monster != null) {
+            monsters.add(monster);
+        }
+    }
+
+    /**
+     * Adds a list of monsters to room's monster list
+     *
+     * @param monsters
+     */
+    public void addAllMonsters(List<Monster> monsters) {
+        if (monsters != null) {
+            this.monsters.addAll(monsters);
+        }
+    }
+
+    /**
+     * Method to set the chest for the given room.
+     *
+     * @param chest
+     */
+    public void setChest(Chest chest) {
+        this.chest = chest;
+    }
+
 
     @Override
     public boolean equals(Object o) {

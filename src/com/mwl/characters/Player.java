@@ -11,12 +11,14 @@ import java.util.stream.Stream;
 
 public abstract class Player {
     private String name;
-    private int life;
+    private int life;   //decreases in combat randomly between 0 and 30, increases when winning
     private Room currentRoom;
-    private List<Item> itemsInventory;
-    private int level;
-    private int score = 0;
+    private List<Item> itemsInventory; //Player's inventory
+    private int level;  //increases with every win in a combat
+    private int score = 0;  //increases by 10 with every win in a combat
 
+
+    //* CONSTRUCTORS */
     public Player() {
     }
 
@@ -29,7 +31,7 @@ public abstract class Player {
         this.score = getScore();
     }
 
-
+    //* BUSINESS METHODS */
     /**
      * If the item is in current room, add the item picked up by the user into the item inventory
      * and remove the item from the room item list
@@ -69,6 +71,7 @@ public abstract class Player {
      */
     public abstract void useSpecialPower();
 
+    /* GETTERS AND SETTERS */
     public String getName() {
         return name;
     }

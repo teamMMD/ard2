@@ -21,12 +21,14 @@ public enum Colors {
     String end;
     String escapeCode = "\033";
 
+    //* CONSTRUCTORS */
     Colors(String foreground, String background) {
         this.foreground = escapeCode + foreground;
         this.background = escapeCode + background;
         this.end = escapeCode + "[0m";
     }
 
+    //* BUSINESS METHODS*/
     /**
      * Changes the passed string to have terminal escape codes injected into the front and back of string, allowing
      * string to be printed in color in terminals.
@@ -59,6 +61,9 @@ public enum Colors {
         return escapeCode + "[7m" + toColor(output) + end;
     }
 
+    /**
+     * Same as above, but takes an int as a parameter
+     */
     public String negative(int output) {
         return negative("" + output);
     }

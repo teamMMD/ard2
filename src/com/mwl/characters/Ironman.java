@@ -12,10 +12,16 @@ import static com.mwl.combat.combatEngine.fightRoomMonster;
 public class Ironman extends Player {
     Monster monster;
 
+    //* CONSTRUCTORS */
     public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory, int level) {
         super(name, life, currentRoom, itemsInventory, level);
     }
 
+    //* BUSINESS METHODS */
+    /**
+     * Method randomly determines who starts an attack: Player or Monster.
+     * Method make player and monster fight each other
+     */
     @Override
     public void attack() {
         int rand = ThreadLocalRandom.current().nextInt(2);
@@ -35,6 +41,9 @@ public class Ironman extends Player {
         }
     }
 
+    /**
+     * Method adds one random item to player's inventory if player has a special item - "power_stone" in inventory
+     */
     @Override //generate more items
     public void useSpecialPower() {
         if (this.getItemsInventory().contains(Item.valueOf("Power_stone"))) {

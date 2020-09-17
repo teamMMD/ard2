@@ -6,6 +6,7 @@ import static com.mwl.characters.MonsterFactory.setMonsterStartingLife;
 
 public class WinOrLose {
 
+    //* BUSINESS METHODS */
     /**
      * Call this method when monster is defeated to level up player.
      *

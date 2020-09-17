@@ -11,11 +11,9 @@ public class RoomMap {
     private final Map<Room, Map<Direction, Room>> map; // underlying data structure
     private final Room start; // starting room
     private final Grammar grammar; // grammar object for generating room descriptions
-    private final PuzzleMaker puzzles;
+    private final PuzzleMaker puzzles; // questions for the player
 
-    /**
-     * Default Constructor
-     */
+    //* CONSTRUCTORS */
     public RoomMap() {
         map = new HashMap<>();
         grammar = new Grammar();
@@ -24,37 +22,20 @@ public class RoomMap {
         map.put(start, new HashMap<>());
     }
 
+    //* BUSINESS METHODS */
     /**
-     * Gets the map's starting room.
+     * Makes a new room with ID the current size of room.
      *
      * @return
      */
-    public Room getStart() {
-        return start;
+    private Room makeNewRoom() {
+        Room result = new Room(grammar.generate_Sentence(), map.size());
+        int percentChest = 40;
+        if (ThreadLocalRandom.current().nextInt(100) < percentChest) {
+            result.setChest(new Chest(puzzles.getRandomPuzzle()));
+        }
+        return result;
     }
-
-    /**
-     * Get the size of the map, i.e. the number of rooms on the map at the given moment
-     *
-     * @return
-     */
-    public int size() {
-        return map.size();
-    }
-
-    /**
-     * Returns the underlying data structure for Testing purposes
-     *
-     * @return
-     */
-    Map<Room, Map<Direction, Room>> getMap() {
-        return map;
-    }
-
-//    public Set<Room> roomList(){
-//        Set<Room> rooms = map.keySet();
-//        return rooms;
-//    }
 
     /**
      * Logic for moving around on the game map. Moves in the passed direction from given room, and returns the new room
@@ -134,17 +115,36 @@ public class RoomMap {
 
     }
 
+    //* GETTERS AND SETTERS */
     /**
-     * Makes a new room with ID the current size of room.
+     * Gets the map's starting room.
      *
      * @return
      */
-    private Room makeNewRoom() {
-        Room result = new Room(grammar.generate_Sentence(), map.size());
-        int percentChest = 40;
-        if (ThreadLocalRandom.current().nextInt(100) < percentChest) {
-            result.setChest(new Chest(puzzles.getRandomPuzzle()));
-        }
-        return result;
+    public Room getStart() {
+        return start;
     }
+
+    /**
+     * Get the size of the map, i.e. the number of rooms on the map at the given moment
+     *
+     * @return
+     */
+    public int size() {
+        return map.size();
+    }
+
+    /**
+     * Returns the underlying data structure for Testing purposes
+     *
+     * @return
+     */
+    Map<Room, Map<Direction, Room>> getMap() {
+        return map;
+    }
+
+//    public Set<Room> roomList(){
+//        Set<Room> rooms = map.keySet();
+//        return rooms;
+//    }
 }

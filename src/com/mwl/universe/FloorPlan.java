@@ -7,9 +7,11 @@ import java.util.Random;
 public class FloorPlan {
     public String[][] floorPlan = new String[80][22];
     public Room randRoom;
+    int xBound = 80;
+    int yBound = 24;
 
-    int randX = (int) new Random().nextInt(40) + 20;
-    int randY = (int) new Random().nextInt(10) + 6;
+    int randX = randomUpTo(40) + 20;
+    int randY = randomUpTo(10) + 6;
 
     public FloorPlan(String roomDescription, int roomID) {
         this.randRoom = new Room(roomDescription, roomID);
@@ -19,18 +21,28 @@ public class FloorPlan {
     public String[][] makeFloorPlan(Room room) {
         System.out.println("\n  randRoom: " + randRoom.toString());
 
-        for (Integer x = 0; x < 79; x++) {
-            for (int y = 0; y < 21; y++) {
-                if (x == randX && y == randY) {
-                    if (randRoom.getMonsters().size() > 0) {
-                        floorPlan[x][y] = "M";
-                    } else {
-                        System.out.println("no monster to render");
-                        floorPlan[x][y] = " ";
-                    }
-                } else if (x == 40 && y == 12) {
+        int roomStartX = (int) Math.floor((xBound - randRoom.getWidth()) / 2);
+        int roomStopX = roomStartX + randRoom.getWidth();
+
+        int roomStartY = (int) Math.floor((yBound - randRoom.getHeight()) / 2);
+        int roomStopY = roomStartY + randRoom.getHeight();
+
+        System.out.println("Y => " + roomStartY + "-" + roomStopY);
+        System.out.println("X => " + roomStartX + "-" + roomStopX);
+
+        for (int x = 0; x < 80; x++) {
+            for (int y = 0; y < 22; y++) {
+//                if (x == randX && y == randY) {
+//                    if (randRoom.getMonsters().size() > 0) {
+//                        floorPlan[x][y] = "M";
+//                    } else {
+//                        System.out.println("no monster to render");
+//                        floorPlan[x][y] = " ";
+//                    }
+//                } else
+                if (x == 39 && y == 11) {
                     floorPlan[x][y] = "@";
-                } else if (x > 20 && x < 60 && y > 5 && y < 15) {
+                } else if (x > roomStartX && x < roomStopX && y > roomStartY && y < roomStopY) {
                     floorPlan[x][y] = " ";
                 } else {
                     floorPlan[x][y] = ".";
@@ -38,6 +50,10 @@ public class FloorPlan {
             }
         }
         return floorPlan;
+    }
+
+    public int randomUpTo(int num) {
+        return (int) new Random().nextInt(num);
     }
 
 }

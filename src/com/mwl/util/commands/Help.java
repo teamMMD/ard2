@@ -12,4 +12,5 @@ public class Help implements Commands {
             throw new IllegalArgumentException("Invalid command. Try again!");
         }
     }
+
 }

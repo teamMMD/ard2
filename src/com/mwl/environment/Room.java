@@ -17,17 +17,32 @@ public class Room {
     private final int id; // room id (for ensuring hashcode is different)
     private Random random = new Random(); // Generate random numbers
     private Chest chest; // a chest of reward items
+    private int height;
+    private int width;
 
 
     //* CONSTRUCTORS */
     public Room(String description, int id) {
         this.description = description;
         this.id = id;
+        setHeight();
+        setWidth();
         items = new ArrayList<>();
         monsters = new ArrayList<>();
         generateRandomRoomItems();
         generateRandomNormalMonsters();
     }
+
+//    public Room(String description, int id, int height, int width) {
+//        this.description = description;
+//        this.id = id;
+//        items = new ArrayList<>();
+//        monsters = new ArrayList<>();
+//        generateRandomRoomItems();
+//        generateRandomNormalMonsters();
+//        setHeight(height);
+//        setWidth(width);
+//    }
 
     //* BUSINESS METHODS */
 
@@ -210,6 +225,23 @@ public class Room {
         this.chest = chest;
     }
 
+    public int getWidth() {
+        return width;
+    }
+    public void setWidth() {
+        width = (int) new Random().nextInt(76) - 2;
+        System.out.println("width... " + width);
+        if (width < 7) width = 7;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+    public void setHeight() {
+        height = (int) new Random().nextInt(18) - 4;
+        System.out.println("height... " + height);
+        if (height < 7) height = 7;
+    }
 
     @Override
     public boolean equals(Object o) {

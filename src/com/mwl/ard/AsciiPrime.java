@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 public class AsciiPrime extends JFrame implements KeyListener {
     private static final long serialVersionUID = 1060623638149583738L;
 

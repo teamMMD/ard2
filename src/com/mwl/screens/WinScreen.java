@@ -1,10 +1,8 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
-
 import java.awt.event.KeyEvent;
 import java.sql.SQLOutput;
-
 import com.mwl.ard.Game;
 
 public class WinScreen implements Screen{
@@ -13,7 +11,8 @@ public class WinScreen implements Screen{
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
-        terminal.writeCenter("CONGRATS YOU WIN MATTHEW! WE NEED LOGIC.", 5);
+        // TODO: need logic to pull in current players name + score
+        terminal.writeCenter("CONGRATS YOU WIN!", 5);
 
         // show scores
         terminal.writeCenter("currentPlayer.getName() + your score is XXX", 10);

@@ -27,6 +27,7 @@ import static com.mwl.util.ExitGame.exit;
 
 public class ConsoleManager {
     private static final Scanner scanner = new Scanner(System.in);
+
     private static MenuTrieNode menu = read_xml();
 //    public String l1 ="Welcome to " + Colors.CYAN.negative("ARD") + ", the game where you get ";
 //    public String l2 = Colors.CYAN.toColor("Another Random Destiny") + " every time you play!\n";
@@ -211,7 +212,7 @@ public class ConsoleManager {
      *
      * @return root of MenuTrie
      */
-    static MenuTrieNode read_xml() {
+    public static MenuTrieNode read_xml() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         NodeList menuNodeList = null;
 
@@ -222,6 +223,7 @@ public class ConsoleManager {
 
             MenuTrieNode menu = recursiveHelper(menuNodeList.item(0));
             menu.setParent(menu);
+//            System.out.println(menu);
             return menu;
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
@@ -291,4 +293,12 @@ public class ConsoleManager {
     public static Scanner scanner() {
         return scanner;
     }
+
+    // TODO: get menu to test funcationality in HelpScreen.java
+    public static MenuTrieNode getMenu() {
+        return menu;
+    }
+
+
+
 }

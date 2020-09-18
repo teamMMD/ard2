@@ -5,8 +5,6 @@ import com.mwl.util.ConsoleManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LoadingScreen implements Screen {
     @Override
@@ -33,7 +31,7 @@ public class LoadingScreen implements Screen {
             case KeyEvent.VK_ENTER:
                 return new PlayScreen();
             case KeyEvent.VK_H:
-                return new HelpScreen();
+                return new InitialHelpScreen();
             case KeyEvent.VK_ESCAPE:
                 System.exit(1);
             case KeyEvent.VK_W:

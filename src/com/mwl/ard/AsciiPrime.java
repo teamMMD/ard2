@@ -23,8 +23,6 @@ public class AsciiPrime extends JFrame implements KeyListener {
         add(terminal);
         pack();
         screen = (Screen) new LoadingScreen();
-        // TODO: remove below line and uncomment above when not in testing
-//        screen = (Screen) new PlayScreen();
         addKeyListener(this);
         repaint();
     }
@@ -37,6 +35,7 @@ public class AsciiPrime extends JFrame implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         screen = screen.respondToUserInput(e);
+        System.out.println("ABOUT TO REPAINT!!!!!!!!");
         repaint();
     }
 
@@ -44,7 +43,11 @@ public class AsciiPrime extends JFrame implements KeyListener {
 
     public void keyTyped(KeyEvent e) { }
 
-    public static void prime(String[] args) {
+    public void paintInTerminal(String str, int pos) {
+        terminal.writeCenter(str, pos);
+    }
+
+    public static void prime() {
         AsciiPrime app = new AsciiPrime();
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setVisible(true);

@@ -30,8 +30,8 @@ public class FloorPlan {
         int roomStartY = (int) Math.floor((yBound - randRoom.getHeight()) / 2) - 2;
         int roomStopY = roomStartY + randRoom.getHeight();
 
-        System.out.println("Y => " + roomStartY + "-" + roomStopY);
-        System.out.println("X => " + roomStartX + "-" + roomStopX);
+//        System.out.println("Y => " + roomStartY + "-" + roomStopY);
+//        System.out.println("X => " + roomStartX + "-" + roomStopX);
 
         int topDoorX = randomInRange(roomStartX, roomStopX);
 
@@ -58,10 +58,10 @@ public class FloorPlan {
         return floorPlan;
     }
 
-    public void updateFloorPlan(int x, int y) {
-        playerX = playerX + x;
-        playerY = playerY + y;
-    }
+//    public void updateFloorPlan(int x, int y) {
+//        playerX = playerX + x;
+//        playerY = playerY + y;
+//    }
 
     public int randomUpTo(int num) {
         return (int) new Random().nextInt(num);
@@ -70,7 +70,7 @@ public class FloorPlan {
 //        max += 1;
         int result = (int) (Math.random() * (max - min + 1) + min);
         if (result == max) result -= 1;
-        System.out.println("randomNumInRange " + min + "-" + max + ": " + result);
+//        System.out.println("randomNumInRange " + min + "-" + max + ": " + result);
         return result;
     }
 

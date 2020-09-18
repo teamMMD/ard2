@@ -1,8 +1,10 @@
 package com.mwl.ard;
 
+import asciiPanel.AsciiPanel;
 import com.mwl.characters.Monster;
 import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
+import com.mwl.characters.PlayerFactory;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
@@ -24,10 +26,14 @@ public class Game {
     private RoomMap gameMap;              // map of the rooms
     private Random random = new Random(); // generate new room
     private Monster boss;                 // boss monster reference
+    static AsciiPanel vdu;               // GUI
 
     // default constructor
-    public Game() {
+    public Game(AsciiPanel vdu) {
         gameMap = new RoomMap();
+        Game.vdu = vdu;
+        System.out.println("what?");
+        System.out.println(vdu.toString());
     }
 
     /**
@@ -44,11 +50,7 @@ public class Game {
         // Text parser
         String[] command = TextParser.parser();
 
-        // do execute two word command
-
-
         // do that thing
-
         switch (command[0]) {
             case "move" -> {
                 int size = gameMap.size();
@@ -74,8 +76,14 @@ public class Game {
      */
     public void newGame() {
         // print game intro and let the player pick a character Iron Man or Wolverine
-        ConsoleManager.gameIntro();
+//        ConsoleManager.gameIntro();
+//        player = ConsoleManager.choosePlayer(gameMap);
         player = ConsoleManager.choosePlayer(gameMap);
+
+//        System.out.println("before paint");
+//        GUI.prime();
+//        GUI.paintInTerminal("um?", 1);
+//        System.out.println("after paint");
 
         boolean playGame = true;
         while (playGame) {

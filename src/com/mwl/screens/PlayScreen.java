@@ -1,6 +1,7 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
+import com.mwl.ard.AsciiPrime;
 import com.mwl.environment.Room;
 import com.mwl.universe.FloorPlan;
 
@@ -14,9 +15,15 @@ public class PlayScreen implements Screen {
     public FloorPlan thisFloor = new FloorPlan("sigh", 1);
     public int pX = 39;
     public int pY = 11;
+    public AsciiPrime vdu;
+
+    public PlayScreen(AsciiPrime vdu) {
+        vdu = vdu;
+    }
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
+        System.out.println("when is this called?");
         terminal.writeCenter("--- PlayScreen?? --- ", 12);
         thisFloor = new FloorPlan("test", 1);
         System.out.println(thisFloor);
@@ -28,8 +35,10 @@ public class PlayScreen implements Screen {
         }
     }
 
-//    public void drawMove(int pX, int pY) {
-//        thisFloor.renderFloor(pX, pY);
+//    public void updatePlayerPosition(int newX, int newY) {
+//        pX = newX;
+//        pY = newY;
+//        displayOutput(AsciiPanel terminal);
 //    }
 
     @Override
@@ -43,10 +52,11 @@ public class PlayScreen implements Screen {
 //                return new PlayScreen();
             case KeyEvent.VK_W:
                 System.out.println("'w' pressed!");
-                thisFloor.updateFloorPlan(0, -1);
-                System.out.println("does it work?");
+//                thisFloor.updateFloorPlan(0, -1);
+                return new PlayScreen(vdu);
+//                System.out.println("does it work?");
 //                wait(3000);
-                break;
+//                break;
         }
         return this;
     }

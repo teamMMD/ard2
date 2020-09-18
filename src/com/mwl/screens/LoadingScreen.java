@@ -1,6 +1,7 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
+import com.mwl.ard.AsciiPrime;
 import com.mwl.util.ConsoleManager;
 
 import java.awt.*;
@@ -24,7 +25,7 @@ public class LoadingScreen implements Screen {
         System.out.println(key.getKeyCode());
         switch (key.getKeyCode()) {
             case KeyEvent.VK_ENTER:
-                return new PlayScreen();
+                return new PlayScreen(new AsciiPrime());
             case KeyEvent.VK_H:
                 return new HelpScreen();
             case KeyEvent.VK_ESCAPE:
@@ -34,4 +35,5 @@ public class LoadingScreen implements Screen {
 //        return key.getKeyCode() == KeyEvent.VK_ENTER ? new TempScreen() : this;
 
     }
+
 }

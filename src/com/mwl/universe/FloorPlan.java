@@ -13,6 +13,9 @@ public class FloorPlan {
     int randX = 36;
     int randY = 9;
 
+    int playerX = 39;
+    int playerY = 11;
+
     public FloorPlan(String roomDescription, int roomID) {
         this.randRoom = new Room(roomDescription, roomID);
         this.floorPlan = makeFloorPlan(randRoom);
@@ -41,7 +44,7 @@ public class FloorPlan {
                         System.out.println("no monster to render");
                         floorPlan[x][y] = " ";
                     }
-                } else if (x == 39 && y == 11) {
+                } else if (x == playerX && y == playerY) {
                     floorPlan[x][y] = "@";
                 } else if (y == roomStartY && x == topDoorX) {
                     floorPlan[x][y] = "+";
@@ -53,6 +56,11 @@ public class FloorPlan {
             }
         }
         return floorPlan;
+    }
+
+    public void updateFloorPlan(int x, int y) {
+        playerX = playerX + x;
+        playerY = playerY + y;
     }
 
     public int randomUpTo(int num) {

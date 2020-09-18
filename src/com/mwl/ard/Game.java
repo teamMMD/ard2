@@ -24,10 +24,18 @@ public class Game {
     private RoomMap gameMap;              // map of the rooms
     private Random random = new Random(); // generate new room
     private Monster boss;                 // boss monster reference
+    private ApplicationMain app;
 
     // default constructor
     public Game() {
         gameMap = new RoomMap();
+    }
+
+    public Game(ApplicationMain app) {
+        gameMap = new RoomMap();
+        app = app;
+        System.out.println("so we have the app in here now...");
+        app.showThis("hi Danny and Maya");
     }
 
     /**

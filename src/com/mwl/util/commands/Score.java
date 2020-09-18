@@ -9,7 +9,7 @@ public class Score implements Commands{
 
     @Override
     public void do_command(String option) throws IllegalArgumentException {
-        System.out.println("i need scores to display here.");
+       // System.out.println("i need scores to display here.");
         BufferedReader reader;
 
         try {

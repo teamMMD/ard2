@@ -3,16 +3,18 @@ package com.mwl.screens;
 import asciiPanel.AsciiPanel;
 import com.mwl.environment.Direction;
 import com.mwl.util.ConsoleManager;
+import com.mwl.util.MenuTrieNode;
 
 import java.awt.event.KeyEvent;
 
 public class GameControlsScreen implements Screen {
 
     ConsoleManager cm = new ConsoleManager();
+    MenuTrieNode gameControls = cm.read_xml().getChild(1);
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
-        terminal.writeCenter(cm.read_xml().getChild(1).getTitle(), 5);
+        terminal.writeCenter(gameControls.getTitle(), 5);
         terminal.writeCenter("ARD2.0 only utilizes movement from arrow keys.", 7);
         terminal.writeCenter("to go " + Direction.North + " press the <up> arrow key.", 9);
         terminal.writeCenter("to go " + Direction.South + " press the <down> arrow key.", 10);

@@ -2,12 +2,15 @@ package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
 import com.mwl.util.ConsoleManager;
+import com.mwl.util.MenuTrieNode;
 
 import java.awt.event.KeyEvent;
 
 public class InitialHelpScreen implements Screen {
 
     ConsoleManager cm = new ConsoleManager();
+    MenuTrieNode storyDetails = cm.read_xml().getChild(0);
+    MenuTrieNode gameControl = cm.read_xml().getChild(1);
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
@@ -17,9 +20,9 @@ public class InitialHelpScreen implements Screen {
         terminal.writeCenter(cm.read_xml().getDescription(), 6);
 
         // terminal.writeCenter("[0, Story Details]", 7);
-        terminal.writeCenter("Press <0> to see " + cm.read_xml().getChild(0).getTitle(), 8);
+        terminal.writeCenter("Press <0> to see " + storyDetails.getTitle(), 8);
         // terminal.writeCenter("[1, Game Controls]", 8);
-        terminal.writeCenter("Press <1> to see " + cm.read_xml().getChild(1).getTitle(), 9);
+        terminal.writeCenter("Press <1> to see " + gameControl.getTitle(), 9);
 
 //        terminal.writeCenter("Press <b> to go back", 11);
 //        terminal.writeCenter("Press <q> to quit", 12);

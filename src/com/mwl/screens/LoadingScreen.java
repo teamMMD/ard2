@@ -19,7 +19,6 @@ public class LoadingScreen implements Screen {
         // TODO: remove this later
         terminal.writeCenter("~matthew~ press <W> to see win screen", 11);
         terminal.writeCenter("~matthew~ press <L> to see lose screen", 12);
-        terminal.writeCenter("~matthew~ press <H> to see help screen", 13);
 
 
         terminal.writeCenter("-- press [enter] to start yet 'Another Random Destiny' --", 22);

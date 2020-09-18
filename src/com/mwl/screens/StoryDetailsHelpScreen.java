@@ -3,6 +3,7 @@ package com.mwl.screens;
 import asciiPanel.AsciiPanel;
 import com.mwl.ard.AsciiPrime;
 import com.mwl.util.ConsoleManager;
+import com.mwl.util.MenuTrieNode;
 
 import java.awt.event.KeyEvent;
 
@@ -12,6 +13,8 @@ public class StoryDetailsHelpScreen implements Screen {
     // WHAT DO I DO?
     ConsoleManager cm = new ConsoleManager();
 
+    MenuTrieNode storyDetails = cm.read_xml().getChild(0);
+
     // method chaining get.child() -> is this okay?
         // rXML(#) -> cm.read_xml().getChild(0).getChild(#).getTitle()
     // instantiaton of consolemanager in each screen -> is this okay?
@@ -20,9 +23,9 @@ public class StoryDetailsHelpScreen implements Screen {
     @Override
     public void displayOutput(AsciiPanel terminal) {
 
-        terminal.writeCenter(cm.read_xml().getChild(0).getTitle(), 5);
-        terminal.writeCenter(cm.read_xml().getChild(0).getDescription(), 7);
-        terminal.writeCenter("Press <0> to see " + cm.read_xml().getChild(0).getChild(0).getTitle(), 9);
+        terminal.writeCenter(storyDetails.getTitle(), 5);
+        terminal.writeCenter(storyDetails.getDescription(), 7);
+        terminal.writeCenter("Press <0> to see " + storyDetails.getChild(0).getTitle(), 9);
         terminal.writeCenter("Press <1> to see more information", 10);
 
         terminal.writeCenter("hit [b] to return to the previous screen", 18);

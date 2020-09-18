@@ -7,6 +7,7 @@ import com.mwl.ard.Game;
 
 public class WinScreen implements Screen{
 
+
     // need input for players name -> then add score to final_scores.txt
 
     @Override
@@ -30,6 +31,7 @@ public class WinScreen implements Screen{
                 return new LoadingScreen();
             case KeyEvent.VK_S:
                 System.out.println("show all players scores");
+                return new ScoreScreen();
         }
         return this;
     }

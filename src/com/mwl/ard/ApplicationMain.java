@@ -40,7 +40,6 @@ public class ApplicationMain extends JFrame implements KeyListener {
     public static void main(String[] args) {
         ApplicationMain app = new ApplicationMain();
         app.setVisible(true);
-        wait()
         game = new Game(app); // make a new game and setup features
         game.newGame(); // start the game
     }

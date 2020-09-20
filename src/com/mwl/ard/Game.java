@@ -35,7 +35,6 @@ public class Game {
         gameMap = new RoomMap();
         app = app;
         System.out.println("so we have the app in here now...");
-        app.showThis("hi Danny and Maya");
     }
 
     /**
@@ -52,11 +51,7 @@ public class Game {
         // Text parser
         String[] command = TextParser.parser();
 
-        // do execute two word command
-
-
         // do that thing
-
         switch (command[0]) {
             case "move" -> {
                 int size = gameMap.size();

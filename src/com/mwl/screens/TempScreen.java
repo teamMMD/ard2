@@ -1,16 +1,22 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
+import com.mwl.ard.Game;
 import org.w3c.dom.ls.LSOutput;
 
 import java.awt.event.KeyEvent;
 
-public class PlayScreen2 implements Screen {
+public class TempScreen implements Screen {
 
     @Override
     public void displayOutput(AsciiPanel display) {
 //        System.out.println("displayOutput run from PlayScreen");
-        display.writeCenter("hi...again", 12);
+        display.writeCenter("hi...from temp screen", 12);
+    }
+
+    @Override
+    public void displayOutput(AsciiPanel display, Game game) {
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
-import org.w3c.dom.ls.LSOutput;
+import com.mwl.ard.Game;
 
 import java.awt.event.KeyEvent;
 
@@ -14,12 +14,18 @@ public class PlayScreen implements Screen {
     }
 
     @Override
+    public void displayOutput(AsciiPanel terminal, Game game) {
+
+    }
+
+    @Override
     public void customDisplayOutput(AsciiPanel display, String str) {
         display.writeCenter(str, 12);
     }
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {
-        return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen2() : this;
+        return key.getKeyCode() == KeyEvent.VK_ENTER ? new TempScreen() : this;
+
     }
 }

@@ -30,45 +30,51 @@ public class ScoreScreen implements Screen {
     public void displayOutput(AsciiPanel terminal) {
         int x = 1;
         int y = 4;
-        List<String> linesList = new ArrayList<>();
-        // create hashMap
-            // store scores as key ->
-            // values as associated string.
 
-//        List<Integer> scoresList = new ArrayList<>();
+        // create hashMap
+        HashMap<Integer, String> scoresMap = new HashMap();
+        // create treeMap to sort hashMap
+        TreeMap<Integer, String> sortedScoresMap = new TreeMap<>();
 
         // for every line in the supplied txt file
         for (int i = 1; i < this.scoreScreenReadFromTxt(x).length(); i++) {
-
-            // compare each lines score
+            // declare each line (String) from txt file
             String line = this.scoreScreenReadFromTxt(x);
-            linesList.add(line);
-            System.out.println(linesList);
+            // declare score (Integer) between the ":" and "points" within each line
+            int singleScore = Integer.parseInt(line.substring(line.indexOf(":") + 1, line.indexOf("points")).trim());
 
-            // sort() linesList by scores in each element
-//            Collections.sort(Integer.valueOf(linesList.get(i).substring(linesList.get(i).indexOf(":") + 1, linesList.get(i).indexOf("points")).trim()));
-            Collections.sort(linesList);
-            System.out.println(linesList);
+            // store scores as key and values as associated string.
+            scoresMap.put(singleScore, line);
 
-//            for (int idx = 0; idx < linesList.size(); idx++ ) {
-//                Integer score = Integer.valueOf(linesList.get(idx).substring(linesList.get(idx).indexOf(":") + 1, linesList.get(idx).indexOf("points")).trim());
-//
-//                scoresList.add(score);
-//                System.out.println(scoresList);
-//                // for all the lines in linesList,
-//                // compare by score
-//            }
+            // transfer hashMap k/v pair to treeMap (automatically sorts)
+            sortedScoresMap.putAll(scoresMap);
 
-            terminal.writeCenter(this.scoreScreenReadFromTxt(x), y);
-            x = x + 2;
+            if(!sortedScoresMap.isEmpty()) {
+                Iterator it = sortedScoresMap.entrySet().iterator();
+                while(it.hasNext()) {
+                    Map.Entry keyValuePair = (Map.Entry)it.next();
+                    // write to terminal -> all values of sorted TreeMap
+                    terminal.writeCenter(keyValuePair.getValue().toString(), y);
+                }
+            }
+            // Iterate to next score line in txt file
+            x = x + 3;
+            // print to next line in terminal/panel
             y++;
-
-
         }
+
+        terminal.writeCenter("hit [b] to return to the previous screen", 18);
+        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 20);
     }
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {
-        return null;
+        switch (key.getKeyCode()) {
+            case KeyEvent.VK_BACK_SPACE:
+                return new LoadingScreen();
+            case KeyEvent.VK_B:
+                return new StoryDetailsHelpScreen();
+        }
+        return new LoadingScreen();
     }
 }

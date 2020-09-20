@@ -10,8 +10,6 @@ public class Main {
 //        Game game = new Game(); // make a new game and setup features
 //        game.newGame(); // start the game
 
-
-
         // The code below was replaced with the static variable app
 //        app = new AsciiPrime();
 

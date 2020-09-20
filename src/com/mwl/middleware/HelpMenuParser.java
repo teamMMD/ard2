@@ -20,6 +20,7 @@ public class HelpMenuParser {
 
     }
 
+    // TODO: ask levi what replaced this method
     public MenuTrieNode makeMenu() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         NodeList menuNodeList = null;

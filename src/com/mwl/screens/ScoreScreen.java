@@ -31,6 +31,10 @@ public class ScoreScreen implements Screen {
         int x = 1;
         int y = 4;
         List<String> linesList = new ArrayList<>();
+        // create hashMap
+            // store scores as key ->
+            // values as associated string.
+
 //        List<Integer> scoresList = new ArrayList<>();
 
         // for every line in the supplied txt file

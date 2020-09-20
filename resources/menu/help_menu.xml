@@ -7,11 +7,9 @@
             <kill_boss title="How to kill the boss" description="You need special items to defeat Bezos. They are sword, shield, potion, ...">
             </kill_boss>
         </winning>
-<!--        <rooms title="What are rooms" description="Rooms are the places where player might see items or/and monsters. Rooms are created instantly as player moves in any direction.">-->
-        <rooms title="What are rooms" description="CHANGE THIS LATER">
+        <rooms title="What are rooms" description="Rooms are the places where player might see items or/and monsters. Rooms are created instantly as player moves in any direction.">
         </rooms>
-<!--        <items title="What are items" description="Items are randomly generated things player can pickup or drop off in each room. There are certain upgraded items (magical stones) that you can only pickup after you have adventures more than 5 rooms.">-->
-        <items title="What are items" description="FIGURE THIS OUT TOO">
+        <items title="What are items" description="Items are randomly generated things player can pickup or drop off in each room. There are certain upgraded items (magical stones) that you can only pickup after you have adventures more than 5 rooms.">
         </items>
         <survival title="How do I survive" description="You kill the monsters and keep your life value above 0.">
         </survival>

@@ -44,10 +44,16 @@ public class ScoreScreen implements Screen {
             int singleScore = Integer.parseInt(line.substring(line.indexOf(":") + 1, line.indexOf("points")).trim());
 
             // store scores as key and values as associated string.
-            scoresMap.put(singleScore, line);
+            scoresMap.put(singleScore, line); //overrides any string with the same key value
 
             // transfer hashMap k/v pair to treeMap (automatically sorts)
             sortedScoresMap.putAll(scoresMap);
+            System.out.println(sortedScoresMap);
+
+            // Iterate to next score line in txt file
+            x = x + 3;
+
+        }
 
             if(!sortedScoresMap.isEmpty()) {
                 Iterator it = sortedScoresMap.entrySet().iterator();
@@ -55,13 +61,11 @@ public class ScoreScreen implements Screen {
                     Map.Entry keyValuePair = (Map.Entry)it.next();
                     // write to terminal -> all values of sorted TreeMap
                     terminal.writeCenter(keyValuePair.getValue().toString(), y);
+                    // print to next line in terminal/panel
+                    y++;
                 }
             }
-            // Iterate to next score line in txt file
-            x = x + 3;
-            // print to next line in terminal/panel
-            y++;
-        }
+
 
         terminal.writeCenter("hit [b] to return to the previous screen", 18);
         terminal.writeCenter("hit [backspace] to return to the loadingScreen", 20);

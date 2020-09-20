@@ -18,3 +18,6 @@
 
 <Final score for this game @2020-09-20T10:15:52.284128>
 [marcelo] (Iron Man): 1120 points
+
+<Final score for this game @2020-09-20T10:15:52.284128>
+[Nancy] (Wolverine): 700 points

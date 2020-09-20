@@ -2,6 +2,7 @@ package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class LoseScreen implements Screen {
@@ -11,12 +12,13 @@ public class LoseScreen implements Screen {
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
-        terminal.writeCenter("BAD MATTHEW - YOU LOSE! GOOD GAME. WE STILL NEED LOGIC.", 5);
+        terminal.writeCenter("Sorry, you lose. :( ", 5, Color.white);
+        terminal.writeCenter("Whould you like to try again? :) ", 7, Color.orange);
 
         // show scores
-        terminal.writeCenter("currentPlayer.getName() + your score is XXX", 10);
+        terminal.writeCenter("currentPlayer.getName() + your score is XXX", 11, Color.white);
 
-        terminal.writeCenter("hit <esc> to exit, <s> to see all high scores, or <enter> to play again =)", 20);
+        terminal.writeCenter("hit <esc> to exit, <s> to see all high scores, or <enter> to play again =)", 22, Color.gray);
     }
 
     @Override
@@ -29,6 +31,7 @@ public class LoseScreen implements Screen {
                 return new LoadingScreen();
             case KeyEvent.VK_S:
                 System.out.println("show all players scores");
+                return new ScoreScreen();
         }
         return this;
     }

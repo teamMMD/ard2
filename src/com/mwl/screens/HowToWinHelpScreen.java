@@ -4,6 +4,7 @@ import asciiPanel.AsciiPanel;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.MenuTrieNode;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class HowToWinHelpScreen implements Screen {
@@ -17,17 +18,17 @@ public class HowToWinHelpScreen implements Screen {
     public void displayOutput(AsciiPanel terminal) {
 
 
-        terminal.writeCenter(howDoIwin.getTitle(), 5);
-        terminal.writeCenter(howDoIwin.getDescription(), 6);
+        terminal.writeCenter(howDoIwin.getTitle(), 4, Color.orange);
+        terminal.writeCenter(howDoIwin.getDescription(), 5, Color.white);
 
-        terminal.writeCenter(howToFindBoss.getTitle(), 8);
-        terminal.writeCenter(howToFindBoss.getDescription(), 9);
+        terminal.writeCenter(howToFindBoss.getTitle(), 7, Color.orange);
+        terminal.writeCenter(howToFindBoss.getDescription(), 8, Color.white);
 
-        terminal.writeCenter(howToKillBoss.getTitle(), 11);
-        terminal.writeCenter(howToKillBoss.getDescription(), 12);
+        terminal.writeCenter(howToKillBoss.getTitle(), 10, Color.orange);
+        terminal.writeCenter(howToKillBoss.getDescription(), 11, Color.white);
 
-        terminal.writeCenter("hit [b] to return to the previous screen", 18);
-        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 20);
+        terminal.writeCenter("hit [b] to return to the previous screen", 21, Color.gray);
+        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 22, Color.gray);
     }
 
     @Override

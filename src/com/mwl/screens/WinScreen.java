@@ -1,6 +1,8 @@
 package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.sql.SQLOutput;
 import com.mwl.ard.Game;
@@ -13,12 +15,12 @@ public class WinScreen implements Screen{
     @Override
     public void displayOutput(AsciiPanel terminal) {
         // TODO: need logic to pull in current players name + score
-        terminal.writeCenter("CONGRATS YOU WIN!", 5);
+        terminal.writeCenter("!!! CONGRATS YOU WIN !!!", 5, Color.orange);
 
         // show scores
-        terminal.writeCenter("currentPlayer.getName() + your score is XXX", 10);
+        terminal.writeCenter("currentPlayer.getName() + your score is XXX", 11, Color.white);
 
-        terminal.writeCenter("hit <esc> to exit, <s> to see all high scores, or <enter> to play again =)", 20);
+        terminal.writeCenter("hit <esc> to exit, <s> to see all high scores, or <enter> to play again =)", 22, Color.gray);
     }
 
     @Override

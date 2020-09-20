@@ -12,16 +12,17 @@ public class LoadingScreen implements Screen {
         ConsoleManager cm = new ConsoleManager();
         System.out.println(cm.l1 + cm.l2 + cm.l3);
 
-        terminal.writeCenter(cm.l1, 1, Color.black, Color.green);
-        terminal.writeCenter(cm.l2, 2);
-        terminal.writeCenter(cm.l3, 3);
+        //terminal.writeCenter(cm.l1, 1, Color.black, Color.green);
+        terminal.writeCenter(cm.l1, 2, Color.orange);
+        terminal.writeCenter(cm.l2, 3, Color.orange);
+        terminal.writeCenter(cm.l3, 20, Color.gray);
 
         // TODO: remove this later
-        terminal.writeCenter("~matthew~ press <W> to see win screen", 11);
-        terminal.writeCenter("~matthew~ press <L> to see lose screen", 12);
+        terminal.writeCenter("~matthew~ press <W> to see win screen", 21);
+        terminal.writeCenter("~matthew~ press <L> to see lose screen", 22);
 
 
-        terminal.writeCenter("-- press [enter] to start yet 'Another Random Destiny' --", 22);
+        terminal.writeCenter("[::]    press [enter] to start yet 'Another Random Destiny'    [::]", 11, Color.white);
     }
 
     public Screen respondToUserInput(KeyEvent key) {

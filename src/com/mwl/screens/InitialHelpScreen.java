@@ -4,6 +4,7 @@ import asciiPanel.AsciiPanel;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.MenuTrieNode;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class InitialHelpScreen implements Screen {
@@ -15,18 +16,18 @@ public class InitialHelpScreen implements Screen {
     @Override
     public void displayOutput(AsciiPanel terminal) {
 
-        terminal.writeCenter(cm.read_xml().getTitle(), 4);
+        terminal.writeCenter(cm.read_xml().getTitle(), 4, Color.orange);
 //        terminal.writeCenter("YOU asked for help, what item do you want to learn about?", 5);
-        terminal.writeCenter(cm.read_xml().getDescription(), 6);
+        terminal.writeCenter(cm.read_xml().getDescription(), 6, Color.white);
 
         // terminal.writeCenter("[0, Story Details]", 7);
-        terminal.writeCenter("Press <0> to see " + storyDetails.getTitle(), 8);
+        terminal.writeCenter("Press <0> to see " + storyDetails.getTitle(), 8, Color.white);
         // terminal.writeCenter("[1, Game Controls]", 8);
-        terminal.writeCenter("Press <1> to see " + gameControl.getTitle(), 9);
+        terminal.writeCenter("Press <1> to see " + gameControl.getTitle(), 9, Color.white);
 
 //        terminal.writeCenter("Press <b> to go back", 11);
 //        terminal.writeCenter("Press <q> to quit", 12);
-        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 20);
+        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 22, Color.gray);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.mwl.screens;
 
 import asciiPanel.AsciiPanel;
 import com.mwl.ard.Game;
+import com.mwl.environment.RoomMap;
 import org.w3c.dom.ls.LSOutput;
 
 import java.awt.event.KeyEvent;
@@ -16,6 +17,11 @@ public class TempScreen implements Screen {
 
     @Override
     public void displayOutput(AsciiPanel display, Game game) {
+
+    }
+
+    @Override
+    public void displayOutput(AsciiPanel display, RoomMap minimap) {
 
     }
 

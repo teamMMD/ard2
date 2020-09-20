@@ -3,6 +3,7 @@ package com.mwl.environment;
 import com.mwl.characters.Player;
 import com.mwl.util.Grammar;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -147,4 +148,15 @@ public class RoomMap {
 //        Set<Room> rooms = map.keySet();
 //        return rooms;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "RoomMap{" +
+                "map=" + map +
+                ", start=" + start +
+                ", grammar=" + grammar +
+                ", puzzles=" + puzzles + "} \n" +
+                Arrays.asList(map);
+    }
 }

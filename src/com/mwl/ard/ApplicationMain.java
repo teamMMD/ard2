@@ -1,6 +1,7 @@
 package com.mwl.ard;
 
 import asciiPanel.AsciiPanel;
+import com.mwl.environment.RoomMap;
 import com.mwl.screens.PlayScreen;
 import com.mwl.screens.Screen;
 
@@ -39,9 +40,11 @@ public class ApplicationMain extends JFrame implements KeyListener {
 
     public static void main(String[] args) {
         ApplicationMain app = new ApplicationMain();
+        screen.displayOutput(gui, new RoomMap());
         app.setVisible(true);
-        game = new Game(app); // make a new game and setup features
-        game.newGame(); // start the game
+//        game = new Game(); // make a new game and setup features
+//        game.newGame(); // start the game
+//        screen.displayOutput(gui, new RoomMap());
     }
 
     @Override

@@ -4,6 +4,7 @@ import asciiPanel.AsciiPanel;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.MenuTrieNode;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class RoomsItemsSurviveHelpScreen implements Screen{
@@ -16,20 +17,20 @@ public class RoomsItemsSurviveHelpScreen implements Screen{
     @Override
     public void displayOutput(AsciiPanel terminal) {
 
-        terminal.writeCenter(whatAreRooms.getTitle(), 4);
-        terminal.writeCenter(whatAreRooms.getDescription().substring(0,66), 5);
-        terminal.writeCenter(whatAreRooms.getDescription().substring(67,128), 6);
+        terminal.writeCenter(whatAreRooms.getTitle(), 4, Color.orange);
+        terminal.writeCenter(whatAreRooms.getDescription().substring(0,66), 5, Color.white);
+        terminal.writeCenter(whatAreRooms.getDescription().substring(67,128), 6, Color.white);
 
-        terminal.writeCenter(whatAreItems.getTitle(), 8);
-        terminal.writeCenter(whatAreItems.getDescription().substring(0,79), 9);
-        terminal.writeCenter(whatAreItems.getDescription().substring(80,135), 10);
-        terminal.writeCenter(whatAreItems.getDescription().substring(135,199), 11);
+        terminal.writeCenter(whatAreItems.getTitle(), 8, Color.orange);
+        terminal.writeCenter(whatAreItems.getDescription().substring(0,79), 9, Color.white);
+        terminal.writeCenter(whatAreItems.getDescription().substring(80,135), 10, Color.white);
+        terminal.writeCenter(whatAreItems.getDescription().substring(135,199), 11, Color.white);
 
-        terminal.writeCenter(howDoISurvive.getTitle(), 13);
-        terminal.writeCenter(howDoISurvive.getDescription().substring(0,55), 14);
+        terminal.writeCenter(howDoISurvive.getTitle(), 13, Color.orange);
+        terminal.writeCenter(howDoISurvive.getDescription().substring(0,55), 14, Color.white);
 
-        terminal.writeCenter("hit [b] to return to the previous screen", 19);
-        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 21);
+        terminal.writeCenter("hit [b] to return to the previous screen", 21,Color.gray);
+        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 22, Color.gray);
     }
 
     @Override

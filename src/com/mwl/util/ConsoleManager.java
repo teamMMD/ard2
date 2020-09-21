@@ -34,7 +34,7 @@ public class ConsoleManager {
 //    public String l3 = "To learn about the game, type \"help me\".";
     public String l1 ="Welcome to 'ARD' the game where you get ";
     public String l2 = "Another Random Destiny every time you play!";
-    public String l3 = "To learn about the game, type \"h\".";
+    public String l3 = "To learn about the game, press [h].";
 
     public ConsoleManager() {
     }

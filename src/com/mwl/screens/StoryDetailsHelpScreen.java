@@ -5,6 +5,7 @@ import com.mwl.ard.AsciiPrime;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.MenuTrieNode;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class StoryDetailsHelpScreen implements Screen {
@@ -23,13 +24,13 @@ public class StoryDetailsHelpScreen implements Screen {
     @Override
     public void displayOutput(AsciiPanel terminal) {
 
-        terminal.writeCenter(storyDetails.getTitle(), 5);
-        terminal.writeCenter(storyDetails.getDescription(), 7);
-        terminal.writeCenter("Press <0> to see " + storyDetails.getChild(0).getTitle(), 9);
-        terminal.writeCenter("Press <1> to see more information", 10);
+        terminal.writeCenter(storyDetails.getTitle(), 4, Color.orange);
+        terminal.writeCenter(storyDetails.getDescription(), 6, Color.white);
+        terminal.writeCenter("Press <0> to see " + storyDetails.getChild(0).getTitle(), 9, Color.white);
+        terminal.writeCenter("Press <1> to see more information", 10, Color.white);
 
-        terminal.writeCenter("hit [b] to return to the previous screen", 18);
-        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 20);
+        terminal.writeCenter("hit [b] to return to the previous screen", 21, Color.gray);
+        terminal.writeCenter("hit [backspace] to return to the loadingScreen", 22, Color.gray);
     }
 
     @Override

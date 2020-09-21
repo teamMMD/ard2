@@ -236,6 +236,29 @@ public class ConsoleManager {
         return failure;
     }
 
+    public static MenuTrieNode read_xml_gameControls() {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        NodeList menuNodeList = null;
+
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse("resources/menu/game_controls_menu.xml");
+            menuNodeList = doc.getElementsByTagName("menu");
+
+            MenuTrieNode menu = recursiveHelper(menuNodeList.item(0));
+            menu.setParent(menu);
+            return menu;
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+
+        MenuTrieNode failure = new MenuTrieNode("Help Menu", "There was an error reading the help menu," +
+                " please restart the game to try again.");
+        failure.setParent(failure);
+
+        return failure;
+    }
+
     /**
      * scanInput gets user input and validates input
      *

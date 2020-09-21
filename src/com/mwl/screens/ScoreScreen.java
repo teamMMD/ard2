@@ -52,19 +52,29 @@ public class ScoreScreen implements Screen {
 
             // Iterate to next score line in txt file
             x = x + 3;
-
         }
 
-            if(!sortedScoresMap.isEmpty()) {
-                Iterator it = sortedScoresMap.entrySet().iterator();
-                while(it.hasNext()) {
-                    Map.Entry keyValuePair = (Map.Entry)it.next();
-                    // write to terminal -> all values of sorted TreeMap
-                    terminal.writeCenter(keyValuePair.getValue().toString(), y, Color.white);
-                    // print to next line in terminal/panel
-                    y++;
-                }
+        if(!sortedScoresMap.isEmpty()) {
+            for (Map.Entry<Integer, String> integerStringEntry : sortedScoresMap.entrySet()) {
+                Map.Entry keyValuePair = (Map.Entry) integerStringEntry;
+                // write to terminal -> all values of sorted TreeMap
+                terminal.writeCenter(keyValuePair.getValue().toString(), y, Color.white);
+                // print to next line in terminal/panel
+                y++;
             }
+        }
+
+//        if(!sortedScoresMap.isEmpty()) {
+//            Iterator it = sortedScoresMap.entrySet().iterator();
+//            while(it.hasNext()) {
+//                Map.Entry keyValuePair = (Map.Entry)it.next();
+//                // write to terminal -> all values of sorted TreeMap
+//                terminal.writeCenter(keyValuePair.getValue().toString(), y, Color.white);
+//                // print to next line in terminal/panel
+//                y++;
+//            }
+//        }
+
 
         terminal.writeCenter("SCORES:", 2, Color.orange);
         terminal.writeCenter("hit [b] to return to the previous screen", 21, Color.gray);
